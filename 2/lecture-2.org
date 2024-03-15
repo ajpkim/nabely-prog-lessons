@@ -1,0 +1,197 @@
+#+TITLE: Lesson 2: Means of Abstraction
+#+DATE: 2024-03-13
+
+* The Story of Computing
+** 1.0 Aristotle and the Greeks: Early foundations of logical reasoning
+
+"All men are mortal. Socrates is a man. *Therefore Socrates is mortal*."
+
+Aristotle's formulation of syllogistic logic provided a systematic framework for reasoning, laying the groundwork for what we now understand as algorithmic thinking. In this context, the logical rules we follow can be likened to an algorithm, the premises "All men are mortal" and "Socrates is a man" can be seen as data or inputs, and the process of deriving the conclusion from these inputs according to the rules is a form of computation.
+
+This foundational approach to formalizing reasoning would significantly influence the development of systematic methods for uncovering truths and performing calculations. Over time, this quest for structured logic paved the way for the creation of machines designed to carry out logical computations, eventually leading to the development of modern computers.
+
+It's crucial to understand that computation is an abstract concept related to the processing of information. This abstraction allows us to perceive computation in various forms: from natural processes in biological systems and the deductive algorithms in mathematics and logic, to the operations performed by the physical computers we use daily.
+
+Understanding abstraction is fundamental to programming and computational thinking. It allows us to conceptualize problems and solutions on different levels, from the concrete to the theoretical, enhancing our ability to design and implement effective algorithms and software solutions.
+
+** 2.0 George Boole: Boolean Logic, Binary, and Mechanical Reasoning
+Jumping way ahead to the 19th century...
+
+[[file:../assets/img/george-boole.jpg]]
+
+- "Laws of Thought"
+
+- Turning logic into algebra → Boolean Logic
+
+- Binary values ("booleans") provided an abstract representation of true
+  false states
+
+- Boolean logic provided another set of rules for reasoning in a similar way that Aristotle's syllogistic logic did way before
+
+- Boolean logic became the basis for computer design as we realized we could build machines which followed the rules of boolean logic. This meant we could build machines that performed some type of "mechanical reasoning".
+
+** 3.0 Charles Babbage & Ada Lovelace
+* Elements of Programming
+Every powerful language has 3 mechanisms for combining simple ideas to form complex ones:
+
+1. *Primitive expressions*: which represent the simplest entities the language is concerned with
+
+2. *Means of combination*: by which compound elements are built from simpler ones, and
+
+3. *Means of abstraction*: by which compound elements can be named and manipulated as units.
+
+** JS Primitives
+- Variables are the simplest form of abstraction
+- The primitive data types in JavaScript are:
+  - =string=
+  - =number=
+  - =bigint=
+  - =boolean=
+  - =undefined=
+  - =symbol=
+  - =null=
+
+#+begin_src js
+  let num = 42 // A primitive expression representing a number
+  let txt = "Hola Mundo!" // A primitive expression representing a string
+  let iLoveJS = true // A primitive expression representing a boolean
+  let nothing = null  // A primitive expression representing null
+#+end_src
+
+** JS Means of Combinations
+Means of Combination in JavaScript: This concept refers to the construction of complex data types and structures from simpler ones:
+
+- Numeric Combination: Uses arithmetic operators to compute new numbers from existing numbers
+
+- String Combination: Employs the + operator to concatenate string types, facilitating dynamic text generation.
+
+- Array Combination: Utilizes square brackets [ ] to group values into an array, aiding in list management and data organization.
+
+- Object Combination: Creates objects with curly braces { }, combining diverse data types into structured entities, essential for modeling complex information.
+#+begin_src js
+  let sum = 10 + 32; // Combines two numbers into a new number
+  let greeting = "Hi, " + "Alice"; // Combines two strings into a new string
+  let coordinates = [40.7128, -74.0060]; // Combines numbers into an array
+  let person = {name: "Bob", age: 25}; // Combines strings and numbers into an object
+#+end_src
+
+** JS Means of Abstraction
+*** Functions
+Functions in JavaScript represent one of the core mechanisms for achieving abstraction. They offer several key features:
+
+- *Encapsulation of code*: Functions allow you to group code into reusable blocks. This helps in reducing redundancy and improving code clarity.
+
+- *Parameterization*: Functions can accept parameters, making them versatile for different inputs. This enables one function to perform various tasks based on the provided arguments.
+
+- *Returning values*: Functions can return results, allowing the output of one function to be used as input for another. This feature facilitates the chaining and composition of functions for complex operations.
+
+→ Functions allow us to build highly abstracted, modular, and reusable code.
+
+#+begin_src js
+  // Function declaration example
+  function add(x, y) {
+    return x + y;
+  }
+
+  // Function expression example
+  function subtract(x, y) {
+    return x - y;
+  };
+
+  function f(x, y) {
+    let difference = subtract(x, y)
+    let sum = add(x, y)
+    let result = add(difference, sum)
+    return result
+  }
+  #+end_src
+
+**** Advanced Function Notes
+- *First-Class Objects*: Functions in JavaScript are treated as first-class objects, meaning they can be assigned to variables, passed as arguments, and returned from other functions. This flexibility is fundamental to the language's expressiveness and functional programming capabilities.
+
+- *Higher-Order Functions*: JavaScript supports higher-order functions, which are functions that can take other functions as arguments or return them. This ability is crucial for creating flexible and reusable code structures.
+
+- *IIFE (Immediately Invoked Function Expressions)*: These are functions that run as soon as they are defined. They provide a scope for variables and functions, which helps avoid pollution of the global namespace and secures code within a local scope.
+
+#+begin_src js
+  // Higher-order function example
+  function filter(array, test) {
+    let passed = [];
+    for (let element of array) {
+      if (test(element)) {
+        passed.push(element);
+      }
+    }
+    return passed;
+  }
+
+  // IIFE example
+  (function() {
+    console.log("This function runs right away!");
+  })();
+#+end_src
+*** Objects
+Objects in JavaScript provide a means to group related data and functions (methods), allowing us to structure information in a more intuitive and accessible way.
+
+Objects are fundamental for creating complex data structures and represent one of the primary means of abstraction and encapsulation in the language.
+
+- *Encapsulation of data and behavior*: Objects allow you to encapsulate related data (properties) and behaviors (methods) into a single entity. This grouping makes the code more intuitive and easier to manage.
+
+- *Modularity and Reusability*: By defining data structures and associated behaviors as objects, you can easily reuse them throughout your code, enhancing modularity and maintainability.
+
+- *Prototype-based Inheritance*: JavaScript uses prototype-based inheritance, which means objects can inherit properties and methods from other objects. This feature allows for more flexible and less hierarchical inheritance structures compared to classical inheritance.
+
+- *Dynamic Nature*: Objects in JavaScript are dynamic, meaning you can add, modify, or delete properties and methods at runtime. This flexibility allows for highly adaptable and mutable data structures.
+
+Objects are defined using curly braces `{}` with an optional list of properties and methods. Properties are values associated with the object, and methods are functions that can use or modify these properties.
+
+#+begin_src js
+  // Object creation example
+  let student = {
+    name: 'alex'
+    city: 'New York'
+    level: "fluent",
+    getInfo: function() {
+      return this.name + ' lives in ' + this.city + ' and is' + this.level + ' in Spanish.'
+    }
+  }
+
+  console.log(student.getInfo())
+#+end_src
+
+Objects can also be used to create complex data structures such as arrays of objects, nested objects, and so forth. This allows us to represent complicated data models and relationships..
+
+**** Advanced Object Notes
+- *Property Access*: Properties of an object can be accessed using dot notation (=object.property=) or bracket notation (=object['property']=), providing flexibility in dynamic property assignment and retrieval.
+
+- *Method Invocation*: Methods are invoked using dot notation and parentheses (e.g., =object.method()=). When a method is called, =this= refers to the object from which the method was called, giving access to the object's properties.
+
+- *Object Constructors and Classes*: While object literals provide a convenient method for creating individual objects, constructors and classes offer a way to create multiple objects with the same structure. This is particularly useful for creating instances of custom data types.
+
+#+begin_src js
+  // Constructor function example
+  function Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  // Create new instances of the Car
+  let myCar = new Car('Toyota', 'Corolla', 2020);
+  let yourCar = new Car('Honda', 'Civic', 2018);
+
+  // Class syntax example
+  class Animal {
+    constructor(name, sound) {
+      this.name = name;
+      this.sound = sound;
+    }
+
+    makeSound() {
+      console.log(this.sound);
+    }
+  }
+
+  let dog = new Animal('Rover', 'Woof');
+  dog.makeSound(); // Outputs: "Woof"
+#+end_src
