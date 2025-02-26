@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History of Ice Cream</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>History of Ice Cream</h1>
+
+        <!-- New form with dropdown -->
+        <form id="flavorForm">
+            <label for="flavorSelect">Choose a flavor:</label>
+            <select id="flavorSelect" name="flavorSelect">
+                <option value="">Select a flavor</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="strawberry">Strawberry</option>
+            </select>
+        </form>
+
+        <p>Ice cream's origins are known to reach back as far as the second century B.C., although no specific date of origin nor inventor has been undisputably credited with its discovery. The ice cream we enjoy today is a relatively modern invention.</p>
+
+        <h2>Flavors</h2>
+        <div class="buttons">
+            <button onclick="showInfo('vanilla')">Vanilla</button>
+            <button onclick="showInfo('chocolate')">Chocolate</button>
+            <button onclick="showInfo('strawberry')">Strawberry</button>
+        </div>
+
+        <div id="flavorInfo">
+            <div id="vanilla" class="info" style="display: none;">
+                <h3>Vanilla</h3>
+                <p>Vanilla is often used as the default flavor in ice cream. It was first recorded as used in ice cream by Thomas Jefferson in 1780.</p>
+            </div>
+            <div id="chocolate" class="info" style="display: none;">
+                <h3>Chocolate</h3>
+                <p>Chocolate was one of the first ice cream flavors created, and it has been a popular choice ever since.</p>
+            </div>
+            <div id="strawberry" class="info" style="display: none;">
+                <h3>Strawberry</h3>
+                <p>Strawberry ice cream is made by blending in fresh strawberries into vanilla ice cream. It has been a beloved flavor for generations.</p>
+            </div>
+        </div>
+	<div>
+	  <a href="paper.html">Learn about the History of Paper</a>
+	</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

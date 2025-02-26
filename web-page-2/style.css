@@ -1,4 +1,4 @@
- body {
+body {
     font-family: Arial, sans-serif;
 }
 
@@ -17,11 +17,22 @@
 
 .buttons button {
     padding: 10px 20px;
-  margin-right: 10px;
-  margin-bottom: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 
 h1, h2 {
     color: #333;
+}
+
+/* New styles for the form and dropdown */
+#flavorForm {
+    margin-bottom: 20px;
+}
+
+#flavorSelect {
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
 }
